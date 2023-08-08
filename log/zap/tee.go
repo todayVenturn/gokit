@@ -28,5 +28,5 @@ func NewTee(tees []TeeOption, opts ...Option) *Logger {
 		)
 		cores = append(cores, core)
 	}
-	return &Logger{l: zap.New(zapcore.NewTee(cores...), opts...)}
+	return &Logger{l: zap.New(zapcore.NewTee(cores...), opts...), s: zap.New(zapcore.NewTee(cores...), opts...).Sugar()}
 }
