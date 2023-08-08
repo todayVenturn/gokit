@@ -34,11 +34,10 @@ func New(out io.Writer, level Level, opts ...Option) *Logger {
 	al := zap.NewAtomicLevelAt(level)
 	cfg := zap.NewProductionEncoderConfig()
 	cfg.EncodeTime = zapcore.ISO8601TimeEncoder
-	cfg.EncodeLevel = zapcore.CapitalColorLevelEncoder
 	cfg.FunctionKey = "F"
 
 	core := zapcore.NewCore(
-		zapcore.NewJSONEncoder(cfg),
+		zapcore.NewConsoleEncoder(cfg),
 		zapcore.AddSync(out),
 		al,
 	)
