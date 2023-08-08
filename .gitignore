@@ -19,3 +19,11 @@
 
 # Go workspace file
 go.work
+
+# IDE
+.idea
+.vscode
+
+# log
+*.log
+*.log.gz
